@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="DetailsBinding"
+            type="com.uma.newsapp.ui.details.DetailsViewModel" />
+    </data>
+
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:orientation="vertical"-->
+<!--        android:scrollbars="vertical">-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dp3"
+            android:scrollbars="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/llToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imgBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_arrow_back"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp6"
+                    android:text="back"
+                    android:textSize="@dimen/large"
+                    android:fontFamily="@font/gotham_medium"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/imgBack"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="back" />
+
+                <ImageView
+                    android:id="@+id/imgBookmark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:src="@drawable/ic_outline_grade_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/imgDownload"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imgDownload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:src="@drawable/ic_baseline_download_for_offline_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/imgUpload"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imgUpload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:src="@drawable/ic_baseline_cloud_upload_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/imgShare"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imgShare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:src="@drawable/ic_baseline_share_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/newsImage"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp250"
+                android:scaleType="fitXY"
+                android:src="@mipmap/ic_launcher"
+                android:transitionName="@string/transitionName"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/llToolbar" />
+
+            <TextView
+                android:id="@+id/news_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:fontFamily="@font/gotham_bold"
+                android:text="Title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/large"
+                app:layout_constraintTop_toBottomOf="@id/newsImage" />
+
+            <TextView
+                android:id="@+id/news_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="@dimen/dp15"
+                android:layout_marginBottom="@dimen/dp15"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:fontFamily="@font/gotham_medium"
+                android:text="Description"
+                android:textSize="@dimen/subtitle"
+                app:layout_constraintTop_toBottomOf="@id/news_title" />
+
+            <TextView
+                android:id="@+id/news_content"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/dp15"
+                android:layout_weight="1"
+                android:fontFamily="@font/gotham_light"
+                android:text="Content"
+                android:textColor="@color/black"
+                android:textSize="@dimen/subtitle"
+                app:layout_constraintTop_toBottomOf="@id/news_description"
+                app:layout_constraintBottom_toTopOf="@id/viewTopLine"/>
+
+            <View
+                android:id="@+id/viewDivider"
+                android:layout_width="@dimen/dp1"
+                android:layout_height="20dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/teal_700"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/viewBottomLine" />
+
+
+
+            <TextView
+                android:id="@+id/txtDetailsDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:text="@string/add_bookmark"
+                android:padding="@dimen/dp15"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:fontFamily="@font/gotham_medium"
+                android:textSize="@dimen/subtitle"
+                app:layout_constraintRight_toRightOf="@+id/viewDivider"
+                app:layout_constraintBottom_toTopOf="@id/viewBottomLine"/>
+            <TextView
+                android:id="@+id/txtDeatilsAuthor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="@id/viewDivider"
+                android:text="@string/add_bookmark"
+                android:padding="@dimen/dp15"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:fontFamily="@font/gotham_medium"
+                android:textSize="@dimen/subtitle"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/viewBottomLine"/>
+
+            <View
+                android:id="@+id/viewTopLine"
+                android:layout_width="match_parent"
+                android:layout_height="0.7dp"
+                android:background="@color/teal_700"
+                app:layout_constraintBottom_toTopOf="@id/txtDeatilsAuthor" />
+            <View
+                android:id="@+id/viewBottomLine"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp2"
+                android:background="@color/teal_700"
+                app:layout_constraintBottom_toBottomOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+<!--    </ScrollView>-->
+</layout>
